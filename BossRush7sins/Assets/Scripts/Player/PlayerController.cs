@@ -11,6 +11,13 @@ public class PlayerController : MonoBehaviour
     }
     public State state;
 
+    // 플레이어 공격 방식
+    public enum AttackMethod
+    { 
+        Ranged, Melee, Meteor,
+    }
+    public AttackMethod attackMethod;
+
     // 스텟
     [Header("스텟")]
     public int maxHealth;
@@ -19,6 +26,7 @@ public class PlayerController : MonoBehaviour
     // 이동
     [Header("이동")]
     public float moveSpeed;
+    private bool fixAngle;
     private Rigidbody2D rb;
     private float xInput;
     private float yInput;
@@ -71,14 +79,15 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         #region 마우스 위치 얻기
-
-        // 마우스 위치 얻기
-        mousePos = Input.mousePosition;
-        mousePos = viewCamera.ScreenToWorldPoint(mousePos);
-        // 마우스 위치를 쳐다보기 위한 각도
-        angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x) * Mathf.Rad2Deg;
-        weapon.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-
+        if (!fixAngle)
+        {
+            // 마우스 위치 얻기
+            mousePos = Input.mousePosition;
+            mousePos = viewCamera.ScreenToWorldPoint(mousePos);
+            // 마우스 위치를 쳐다보기 위한 각도
+            angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x) * Mathf.Rad2Deg;
+            weapon.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        }
         #endregion
 
         #region 상하좌우, 최근 방향 값 받기
@@ -137,6 +146,7 @@ public class PlayerController : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
                         StopCurrentRoutine();
+                        fixAngle = false;
                         rollDir = lastMoveDir;
                         rollSpeed = maxRollSpeed;
                         state = State.Rolling;
@@ -145,7 +155,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case State.Stagger:
-
+                TakeDamage(1);
                 break;
 
             case State.Dead:
@@ -179,6 +189,7 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        StartCoroutine(HitStop());
         health -= damage;
         if (health < 0)
         {
@@ -193,11 +204,26 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(preDelay);
         Vector3 spawnPos = projectileSpawnPos.transform.position;
         // 투사체 소환
-        Instantiate(projectile, spawnPos, Quaternion.AngleAxis(angle - 90, Vector3.forward));
+        switch (attackMethod)
+        {
+            case AttackMethod.Ranged:
+                Instantiate(projectile, spawnPos, Quaternion.AngleAxis(angle - 90, Vector3.forward));
+                break;
+
+            case AttackMethod.Melee:
+                Instantiate(projectile, spawnPos, Quaternion.AngleAxis(angle - 90, Vector3.forward));
+                break;
+
+            case AttackMethod.Meteor:
+                Instantiate(projectile, mousePos, Quaternion.AngleAxis(angle - 90, Vector3.forward));
+                break;
+        }
         // 후딜
+        fixAngle = true;
         yield return new WaitForSeconds(aftDelay);
         // 원래 상태로 복귀
         state = State.Normal;
+        fixAngle = false;
         currentRoutine = null;
     }
 
@@ -240,5 +266,12 @@ public class PlayerController : MonoBehaviour
             temp++;
         }
         triggerCollider.enabled = true;
+    }
+
+    private IEnumerator HitStop()
+    {
+        Time.timeScale = 0.0f;
+        yield return new WaitForSecondsRealtime(0.1f);
+        Time.timeScale = 1.0f;
     }
 }

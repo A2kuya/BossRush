@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 15
-  knockTime: 0.2
+  knockTime: 0
   otherTag: Player
 --- !u!1 &1125146662
 GameObject:
@@ -475,17 +475,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  attackMethod: 2
   maxHealth: 100
   health: 0
   moveSpeed: 10
   maxRollSpeed: 30
   minRollSpeed: 10
   rollSpeedDropMultiplier: 5
-  projectile: {fileID: 4826305112849637545, guid: 4f8d6debbcd37fd458d6a5c0a9fcb79d, type: 3}
+  projectile: {fileID: 1187623250357487947, guid: 46c07a00b66d9944f8c4374af24aafaf, type: 3}
   projectileSpawnPos: {fileID: 1590301949}
   weapon: {fileID: 1125146662}
-  preDelay: 0.3
-  aftDelay: 0.3
+  preDelay: 0
+  aftDelay: 0
   flashColor: {r: 0.5471698, g: 0.08517267, b: 0.08517267, a: 1}
   regularColor: {r: 1, g: 1, b: 1, a: 1}
   flashDuration: 0.07

@@ -30,6 +30,4 @@ public class Knockback : MonoBehaviour
             }
         }
     }
-
-    
 }
