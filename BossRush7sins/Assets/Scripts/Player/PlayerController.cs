@@ -129,59 +129,66 @@ public class PlayerController : MonoBehaviour
         {
             // 일반 상태
             case State.Normal:
-                // 좌우반전
-                if (xInput < 0) sr.flipX = true;
-                else if (xInput > 0) sr.flipX = false;
-
-                // 구르기 입력
-                if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    state = State.Rolling;
-                }
+                    // 좌우반전
+                    if (xInput < 0) sr.flipX = true;
+                    else if (xInput > 0) sr.flipX = false;
 
-                // 주문 시작
-                if (Input.GetMouseButtonDown(0))
-                {
-                    state = State.Casting;
+                    // 구르기 입력
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        state = State.Rolling;
+                    }
+
+                    // 주문 시작
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        state = State.Casting;
+                    }
+                    break;
                 }
-                break;
 
             // 구르기 상태
             case State.Rolling:
-                if (!readyRoll)
                 {
-                    if (Mathf.Abs(moveDir.x) > 0)
+                    if (!readyRoll)
                     {
-                        rollDir.x = moveDir.x;
-                    }
-                    if (Mathf.Abs(xInput) > 0)
-                    {
-                        rollDir.y = moveDir.y;
-                    }
-                    if (Mathf.Abs(moveDir.x) == 0 && Mathf.Abs(xInput) == 0)
-                    {
-                        rollDir = lastMoveDir;
-                    }
-                    // 좌우반전
-                    if (rollDir.x < 0) sr.flipX = true;
-                    else if (rollDir.x > 0) sr.flipX = false;
+                        if (Mathf.Abs(moveDir.x) > 0)
+                        {
+                            rollDir.x = moveDir.x;
+                        }
+                        if (Mathf.Abs(xInput) > 0)
+                        {
+                            rollDir.y = moveDir.y;
+                        }
+                        if (Mathf.Abs(moveDir.x) == 0 && Mathf.Abs(xInput) == 0)
+                        {
+                            rollDir = lastMoveDir;
+                        }
+                        // 좌우반전
+                        if (rollDir.x < 0) sr.flipX = true;
+                        else if (rollDir.x > 0) sr.flipX = false;
 
-                    if (currentRoutine == null)
-                        currentRoutine = StartCoroutine(Roll());
-                }
-
-                else
-                {
-                    rollSpeed -= rollSpeed * rollSpeedDropMultiplier * Time.deltaTime;
-                    triggerCollider.enabled = false;
-                    if (rollSpeed < minRollSpeed)
-                    {
-                        readyRoll = false;
-                        triggerCollider.enabled = true;
-                        state = State.Normal;
+                        if (currentRoutine == null)
+                        {
+                            triggerCollider.enabled = false;
+                            currentRoutine = StartCoroutine(Roll());
+                        }
                     }
+
+                    else
+                    {
+                        rollSpeed -= rollSpeed * rollSpeedDropMultiplier * Time.deltaTime;
+                        
+                        if (rollSpeed < minRollSpeed)
+                        {
+                            readyRoll = false;
+                            triggerCollider.enabled = true;
+                            state = State.Normal;
+                        }
+                    }
+                    break;
                 }
-                break;
 
             // 주문 시전 중
             case State.Casting:
@@ -199,8 +206,8 @@ public class PlayerController : MonoBehaviour
                         fixAngle = false;
                         state = State.Rolling;
                     }
+                    break;
                 }
-                break;
 
             case State.Stagger:
                 TakeDamage(1);
@@ -237,7 +244,7 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        StartCoroutine(HitStop());
+        //StartCoroutine(HitStop());
         health -= damage;
         if (health < 0)
         {
