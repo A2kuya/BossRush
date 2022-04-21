@@ -5,30 +5,31 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     [SerializeField] protected int maxHp;
-    [SerializeField] protected List<int> phaseTriggerPercent;
-    [SerializeField] protected int curHp;
+    [SerializeField] protected List<int> phaseTrigger;
+    protected int curHp;
     [SerializeField] protected int curPhase;
     protected int curGimmick;
     protected IEnumerator currentPattern;
     protected float delay;
 
-    protected bool inAction;
+    [SerializeField] protected bool inAction;
     protected bool inDelay;
     protected bool isInvincible;
 
+    protected Animator anim;
+
     void Start()
     {
+        anim = GetComponent<Animator>();
         curHp = maxHp;
         delay = 1;
         curPhase = 1;
         PhaseTriggerSort();
         StartCoroutine(ManageAction());  
-    }
 
-    void Update()
-    {
         
     }
+
 
     virtual protected void NextPattern(){
         if(PhaseCheck()){
@@ -41,7 +42,7 @@ public class Boss : MonoBehaviour
         while(true){
             NextPattern();
             if(currentPattern != null)
-                StartCoroutine(currentPattern); //보스 패턴 진행
+                StartCoroutine(currentPattern); //보스 패턴 진행            
             yield return new WaitUntil(() => inAction == false);               
 
             StartCoroutine(Wating(delay));  //다음 패턴까지 딜레이
@@ -57,24 +58,26 @@ public class Boss : MonoBehaviour
 
     protected IEnumerator SamplePattern(){
         //change animatrion
-        inAction = true;
+        ActionControl(true);
 
         //do potterns
         yield return new WaitForSeconds(1f);
 
         //change animation
         delay = 1f;
-        inAction = false;
+        ActionControl(false);
     }
 
 
     void PhaseTriggerSort(){
-        phaseTriggerPercent.Sort((int a, int b) => b.CompareTo(a));
+        phaseTrigger.Sort((int a, int b) => b.CompareTo(a));
     }
+    
+    int p;
     virtual protected bool PhaseCheck(){
-        int p = 0;
-        while(p < phaseTriggerPercent.Count && phaseTriggerPercent[p] > curHp) { p++; }
-
+        p = 0;
+        while(p < phaseTrigger.Count && phaseTrigger[p] > curHp) { p++; }
+        p++;
 
         if(curPhase != p){
             curPhase = p;
@@ -82,5 +85,9 @@ public class Boss : MonoBehaviour
         }else{
             return false;
         }
+    }
+
+    protected void ActionControl(bool b){
+        inAction = b;
     }
 }
