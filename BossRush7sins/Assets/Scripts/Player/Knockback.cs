@@ -4,14 +4,45 @@ using UnityEngine;
 
 public class Knockback : MonoBehaviour
 {
+    private Rigidbody2D rb;
+
     [SerializeField] private float thrust;
     [SerializeField] private float knockTime;
     [SerializeField] private string otherTag;
+    [SerializeField] private float coolTime;
+    private float timer;
+    private bool canDamagable;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        timer = coolTime;
+        canDamagable = true;
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer >= coolTime)
+        {
+            canDamagable = true;
+            rb.WakeUp();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (!canDamagable)
+        {
+            return;
+        }
+
         if (other.gameObject.CompareTag(otherTag))
         {
+            rb.Sleep();
+            canDamagable = false;
+            timer = 0;
+
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
             if (hit != null)
             {

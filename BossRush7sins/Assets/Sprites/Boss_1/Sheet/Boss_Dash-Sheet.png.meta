@@ -1,43 +1,7 @@
 fileFormatVersion: 2
-guid: e4d3fab08e249e34ab36925e206370c7
+guid: 684570895e4333e4fb5b7a7918219164
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 5139111833925931716
-    second: Boss_Dash-Sheet_0
-  - first:
-      213: -4284616200318728527
-    second: Boss_Dash-Sheet_2
-  - first:
-      213: -8897297749652270574
-    second: Boss_Dash-Sheet_4
-  - first:
-      213: 4588140457238495245
-    second: Boss_Dash-Sheet_6
-  - first:
-      213: -1791954150933981202
-    second: Boss_Dash-Sheet_8
-  - first:
-      213: -2429373820769647439
-    second: Boss_Dash-Sheet_10
-  - first:
-      213: -5062915904192441438
-    second: Boss_Dash-Sheet_12
-  - first:
-      213: 1732206186243205123
-    second: Boss_Dash-Sheet_14
-  - first:
-      213: -2627948963228364965
-    second: Boss_Dash-Sheet_16
-  - first:
-      213: -309746642920406846
-    second: Boss_Dash-Sheet_18
-  - first:
-      213: 924801858547738326
-    second: Boss_Dash-Sheet_20
-  - first:
-      213: 1756705365270484641
-    second: Boss_Dash-Sheet_22
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -68,7 +32,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -77,12 +41,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,43 +68,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -149,259 +77,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Boss_Dash-Sheet_0
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 14
-        width: 151
-        height: 113
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c2592a1cfac15740800000000000000
-      internalID: 5139111833925931716
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Dash-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 193
-        y: 11
-        width: 153
-        height: 114
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1b64e15444cf984c0800000000000000
-      internalID: -4284616200318728527
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Dash-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 377
-        y: 13
-        width: 150
-        height: 114
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 212181b26d2768480800000000000000
-      internalID: -8897297749652270574
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Dash-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 555
-        y: 12
-        width: 152
-        height: 113
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d008c45df695caf30800000000000000
-      internalID: 4588140457238495245
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Dash-Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 733
-        y: 8
-        width: 153
-        height: 121
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee71bc3a133b127e0800000000000000
-      internalID: -1791954150933981202
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Dash-Sheet_10
-      rect:
-        serializedVersion: 2
-        x: 914
-        y: 8
-        width: 153
-        height: 121
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1b44462a161294ed0800000000000000
-      internalID: -2429373820769647439
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Dash-Sheet_12
-      rect:
-        serializedVersion: 2
-        x: 1096
-        y: 7
-        width: 151
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a31fe24fc8ecb9b0800000000000000
-      internalID: -5062915904192441438
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Dash-Sheet_14
-      rect:
-        serializedVersion: 2
-        x: 1273
-        y: 7
-        width: 153
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 308a2c849580a0810800000000000000
-      internalID: 1732206186243205123
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Dash-Sheet_16
-      rect:
-        serializedVersion: 2
-        x: 1452
-        y: 6
-        width: 155
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b5fcae66756a78bd0800000000000000
-      internalID: -2627948963228364965
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Dash-Sheet_18
-      rect:
-        serializedVersion: 2
-        x: 1634
-        y: 6
-        width: 153
-        height: 119
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2c00c52c11f83bbf0800000000000000
-      internalID: -309746642920406846
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Dash-Sheet_20
-      rect:
-        serializedVersion: 2
-        x: 1814
-        y: 6
-        width: 152
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6d6eb5af36e85dc00800000000000000
-      internalID: 924801858547738326
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Dash-Sheet_22
-      rect:
-        serializedVersion: 2
-        x: 1994
-        y: 6
-        width: 153
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a658f7e832116810800000000000000
-      internalID: 1756705365270484641
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []

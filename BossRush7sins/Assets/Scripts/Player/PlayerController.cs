@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
     }
     public AttackMethod attackMethod;
 
+    // 애니메이션
+    private Animator animator;
+    private SpriteRenderer sr;
+
     // 스텟
     [Header("스텟")]
     public int maxHealth;
@@ -71,6 +75,8 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        animator = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         viewCamera = Camera.main;
         Init();
@@ -78,6 +84,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0f) return;
+
         #region 마우스 위치 얻기
         if (!fixAngle)
         {
@@ -94,7 +102,16 @@ public class PlayerController : MonoBehaviour
         // 상하좌우 움직임 입력
         xInput = Input.GetAxisRaw("Horizontal");
         yInput = Input.GetAxisRaw("Vertical");
-        moveDir = new Vector3(xInput, yInput);
+        moveDir = new Vector3(xInput, yInput).normalized;
+
+        // 애니메이션 값 전달
+        animator.SetFloat("xInput", xInput);
+        animator.SetFloat("yInput", yInput);
+
+
+        // 애니메이션 움직이고 있는지 아닌지 전달
+        if (moveDir == Vector3.zero) animator.SetBool("isMoving", false);
+        else animator.SetBool("isMoving", true);
 
         // 최근 움직였던 방향
         if (xInput != 0 || yInput != 0)
@@ -107,9 +124,22 @@ public class PlayerController : MonoBehaviour
         {
             // 일반 상태
             case State.Normal:
+                // 좌우반전
+                if (xInput < 0) sr.flipX = true;
+                else if (xInput > 0) sr.flipX = false;
+
                 // 구르기 입력
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    xInput = Input.GetAxisRaw("Horizontal");
+                    yInput = Input.GetAxisRaw("Vertical");
+                    moveDir = new Vector3(xInput, yInput).normalized;
+                    if (xInput != 0 || yInput != 0)
+                    {
+                        lastMoveDir = moveDir;
+                    }
+
+                    animator.SetTrigger("doDash");
                     rollDir = lastMoveDir;
                     rollSpeed = maxRollSpeed;
                     state = State.Rolling;
@@ -145,6 +175,7 @@ public class PlayerController : MonoBehaviour
                     // 구르기로 캔슬
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
+                        animator.SetTrigger("doDash");
                         StopCurrentRoutine();
                         fixAngle = false;
                         rollDir = lastMoveDir;
@@ -200,9 +231,14 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Shoot(float preDelay, float aftDelay)
     {
+        // 공격 방향 바라보기
+        Vector3 spawnPos = projectileSpawnPos.transform.position;
+        if (spawnPos.x - transform.position.x < 0) sr.flipX = true;
+        else if (spawnPos.x - transform.position.x > 0) sr.flipX = false;
+
         // 선딜
         yield return new WaitForSeconds(preDelay);
-        Vector3 spawnPos = projectileSpawnPos.transform.position;
+        
         // 투사체 소환
         switch (attackMethod)
         {

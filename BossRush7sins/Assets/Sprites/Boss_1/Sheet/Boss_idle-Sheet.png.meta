@@ -1,43 +1,7 @@
 fileFormatVersion: 2
-guid: 06005bbbf1a7bb246818cff31f6efce6
+guid: 42a4f12a855c12a43a97ecf3900ad413
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -5125147310591957925
-    second: Boss_idle-Sheet_0
-  - first:
-      213: 3171355738413068194
-    second: Boss_idle-Sheet_2
-  - first:
-      213: -1038714827045461476
-    second: Boss_idle-Sheet_4
-  - first:
-      213: -7787871094402640969
-    second: Boss_idle-Sheet_6
-  - first:
-      213: 5729118955772411108
-    second: Boss_idle-Sheet_8
-  - first:
-      213: -3760999576936387010
-    second: Boss_idle-Sheet_10
-  - first:
-      213: -3108972410824115529
-    second: Boss_idle-Sheet_12
-  - first:
-      213: 7065171765822877995
-    second: Boss_idle-Sheet_14
-  - first:
-      213: 359034069866083816
-    second: Boss_idle-Sheet_16
-  - first:
-      213: 3721729827157291997
-    second: Boss_idle-Sheet_18
-  - first:
-      213: -5169961977521796284
-    second: Boss_idle-Sheet_20
-  - first:
-      213: 1745334834123547589
-    second: Boss_idle-Sheet_22
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -68,7 +32,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -77,12 +41,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,43 +68,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -149,259 +77,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Boss_idle-Sheet_0
-      rect:
-        serializedVersion: 2
-        x: 22
-        y: 13
-        width: 145
-        height: 111
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b542e9adca1dfd8b0800000000000000
-      internalID: -5125147310591957925
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_idle-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 204
-        y: 14
-        width: 142
-        height: 111
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2afe184dd3be20c20800000000000000
-      internalID: 3171355738413068194
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_idle-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 382
-        y: 12
-        width: 144
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c12260f3e5eb591f0800000000000000
-      internalID: -1038714827045461476
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_idle-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 563
-        y: 13
-        width: 144
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7b31995608cebe390800000000000000
-      internalID: -7787871094402640969
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_idle-Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 744
-        y: 8
-        width: 143
-        height: 121
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ec75ca065be18f40800000000000000
-      internalID: 5729118955772411108
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_idle-Sheet_10
-      rect:
-        serializedVersion: 2
-        x: 923
-        y: 8
-        width: 143
-        height: 121
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e3eef48bfce3ecbc0800000000000000
-      internalID: -3760999576936387010
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_idle-Sheet_12
-      rect:
-        serializedVersion: 2
-        x: 1102
-        y: 7
-        width: 144
-        height: 117
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7bab65c7016bad4d0800000000000000
-      internalID: -3108972410824115529
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_idle-Sheet_14
-      rect:
-        serializedVersion: 2
-        x: 1283
-        y: 7
-        width: 143
-        height: 117
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b21fdf2c9488c0260800000000000000
-      internalID: 7065171765822877995
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_idle-Sheet_16
-      rect:
-        serializedVersion: 2
-        x: 1462
-        y: 6
-        width: 144
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8e571a4959b8bf400800000000000000
-      internalID: 359034069866083816
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_idle-Sheet_18
-      rect:
-        serializedVersion: 2
-        x: 1642
-        y: 6
-        width: 145
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dd3bfa92f8d36a330800000000000000
-      internalID: 3721729827157291997
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_idle-Sheet_20
-      rect:
-        serializedVersion: 2
-        x: 1824
-        y: 6
-        width: 143
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 44b898b19fa9048b0800000000000000
-      internalID: -5169961977521796284
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_idle-Sheet_22
-      rect:
-        serializedVersion: 2
-        x: 2003
-        y: 6
-        width: 144
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5c3ac02d8cca83810800000000000000
-      internalID: 1745334834123547589
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
