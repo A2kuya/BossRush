@@ -18,7 +18,7 @@ public class Bead : MonoBehaviour
         for (int i = 0; i < 8; i++)
         {
             Instantiate(projectile, transform.position, Quaternion.AngleAxis(i * 45, Vector3.forward));
-            Destroy(gameObject);
         }
+        Destroy(gameObject);
     }
 }
