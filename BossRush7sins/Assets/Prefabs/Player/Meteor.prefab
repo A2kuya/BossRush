@@ -112,9 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd10911b5ab14647abfd71f06a1d2cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
-  lifeTime: 3
-  damage: 1
+  delay: 99999
+  lifeTime: 1
+  damage: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 0
