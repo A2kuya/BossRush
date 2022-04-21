@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
     private float rollSpeed;
     private Vector3 rollDir;
 
+    private bool readyRoll;
+
     // 무기
     [Header("무기")]
     public GameObject projectile;
@@ -69,8 +71,10 @@ public class PlayerController : MonoBehaviour
     public void Init()
     {
         state = State.Normal;
-        lastMoveDir = Vector3.down;
+        lastMoveDir = Vector3.right;
         health = maxHealth;
+
+        readyRoll = false;
     }
 
     void Awake()
@@ -84,6 +88,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // 일시정지 상태일 때 작동 안되게
         if (Time.timeScale == 0f) return;
 
         #region 마우스 위치 얻기
@@ -131,17 +136,6 @@ public class PlayerController : MonoBehaviour
                 // 구르기 입력
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    xInput = Input.GetAxisRaw("Horizontal");
-                    yInput = Input.GetAxisRaw("Vertical");
-                    moveDir = new Vector3(xInput, yInput).normalized;
-                    if (xInput != 0 || yInput != 0)
-                    {
-                        lastMoveDir = moveDir;
-                    }
-
-                    animator.SetTrigger("doDash");
-                    rollDir = lastMoveDir;
-                    rollSpeed = maxRollSpeed;
                     state = State.Rolling;
                 }
 
@@ -154,12 +148,38 @@ public class PlayerController : MonoBehaviour
 
             // 구르기 상태
             case State.Rolling:
-                rollSpeed -= rollSpeed * rollSpeedDropMultiplier * Time.deltaTime;
-                triggerCollider.enabled = false;
-                if (rollSpeed < minRollSpeed)
+                if (!readyRoll)
                 {
-                    triggerCollider.enabled = true;
-                    state = State.Normal;
+                    if (Mathf.Abs(moveDir.x) > 0)
+                    {
+                        rollDir.x = moveDir.x;
+                    }
+                    if (Mathf.Abs(xInput) > 0)
+                    {
+                        rollDir.y = moveDir.y;
+                    }
+                    if (Mathf.Abs(moveDir.x) == 0 && Mathf.Abs(xInput) == 0)
+                    {
+                        rollDir = lastMoveDir;
+                    }
+                    // 좌우반전
+                    if (rollDir.x < 0) sr.flipX = true;
+                    else if (rollDir.x > 0) sr.flipX = false;
+
+                    if (currentRoutine == null)
+                        currentRoutine = StartCoroutine(Roll());
+                }
+
+                else
+                {
+                    rollSpeed -= rollSpeed * rollSpeedDropMultiplier * Time.deltaTime;
+                    triggerCollider.enabled = false;
+                    if (rollSpeed < minRollSpeed)
+                    {
+                        readyRoll = false;
+                        triggerCollider.enabled = true;
+                        state = State.Normal;
+                    }
                 }
                 break;
 
@@ -175,11 +195,8 @@ public class PlayerController : MonoBehaviour
                     // 구르기로 캔슬
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
-                        animator.SetTrigger("doDash");
                         StopCurrentRoutine();
                         fixAngle = false;
-                        rollDir = lastMoveDir;
-                        rollSpeed = maxRollSpeed;
                         state = State.Rolling;
                     }
                 }
@@ -309,5 +326,14 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 0.0f;
         yield return new WaitForSecondsRealtime(0.1f);
         Time.timeScale = 1.0f;
+    }
+
+    private IEnumerator Roll()
+    {
+        yield return new WaitForSeconds(0.05f);
+        animator.SetTrigger("doDash");
+        rollSpeed = maxRollSpeed;
+        readyRoll = true;
+        currentRoutine = null;
     }
 }
