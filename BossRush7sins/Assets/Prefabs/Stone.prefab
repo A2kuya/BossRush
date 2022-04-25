@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7675850349827465431}
   - component: {fileID: 7675850349827465429}
   - component: {fileID: 7675850349827465430}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingTime: 1
   targetPos: {x: 0, y: 0, z: 0}
-  explodeTime: 1
+  explodeTime: 10
   projectile: {fileID: 4826305112849637545, guid: 4f8d6debbcd37fd458d6a5c0a9fcb79d, type: 3}
 --- !u!61 &7675850349827465430
 BoxCollider2D:

@@ -12,9 +12,17 @@ public class Skull : MonoBehaviour
     float rushSpeed;
     [SerializeField] bool inPattern = false;
     [SerializeField] LayerMask wallLayer;
-    
+
+    [SerializeField] LayerMask stone;
+    [SerializeField] private int _gorggyCount = 0;
+    public int gorggyCount{
+        get { return _gorggyCount; }
+    }
+
+    SpriteRenderer sp;    
     private void Start() {
         anim = GetComponent<Animator>();
+        sp = GetComponent<SpriteRenderer>();
     }
 
     private void Update() {
@@ -94,9 +102,41 @@ public class Skull : MonoBehaviour
     #endregion
     
 
+    
+
+    [SerializeField] private bool _onGroggy;
+    public bool onGroggy {
+        get { return _onGroggy; }
+        set { _onGroggy = value; }
+    }
+    IEnumerator Blink(){
+        sp.color = new Color(0, 0, 0);
+        yield return new WaitForSeconds(0.1f);
+        sp.color = new Color(255, 255, 255);
+        yield return new WaitForSeconds(0.1f);
+        sp.color = new Color(0, 0, 0);
+        yield return new WaitForSeconds(0.1f);
+        sp.color = new Color(255, 255, 255);
+        yield return new WaitForSeconds(0.1f);
+        sp.color = new Color(0, 0, 0);
+        yield return new WaitForSeconds(0.1f);
+        sp.color = new Color(255, 255, 255);
+        yield return new WaitForSeconds(0.1f);
+        sp.color = new Color(0, 0, 0);
+        yield return new WaitForSeconds(0.1f);
+        sp.color = new Color(255, 255, 255);
+        onGroggy = false;
+    }
+
+    public void Groggy(){
+        StartCoroutine(Blink());
+    }
+
+
     public void SetInPattern(bool b){        
         inPattern = b;
     }
+
     public bool GetInPattern(){
         return inPattern;
     }
@@ -105,10 +145,20 @@ public class Skull : MonoBehaviour
     public void TakeDamaged(int damage){
         curHp -= damage;
     }
-
     void CheckDead(){
         if(maxHp <= 0){
             gameObject.SetActive(false);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.layer == Mathf.Log(stone.value, 2)){
+            Destroy(other.gameObject);
+            if(gorggyCount == 0){
+                _onGroggy = true;
+                _gorggyCount++;
+            }
+        }
+    }
+
 }
